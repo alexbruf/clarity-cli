@@ -2,8 +2,6 @@
 
 A CLI for Microsoft Clarity — query your analytics dashboard, list session recordings with playable URLs, find AI-referral traffic (ChatGPT, Perplexity, etc.), and search Clarity docs. Wraps the same endpoints as Microsoft's official MCP server, plus the public Data Export API. Ships with a Claude Code skill so you can ask questions naturally inside Claude.
 
-Built with Bun, compiled to a standalone binary (no runtime required). Same shape as [`ics-cli`](https://github.com/alexbruf/ics-cli).
-
 ## Installation
 
 ### CLI — native binary (preferred)
