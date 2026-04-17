@@ -18,12 +18,17 @@ jobs:
           bun-version: latest
       - run: bun install --frozen-lockfile
       - run: bun run build:skill
+      - name: Package Claude.ai skill zip
+        run: |
+          cd skills
+          zip -r ../clarity-skill.zip clarity
       - uses: actions/upload-artifact@v4
         with:
           name: clarity-skill
           path: |
             skills/clarity/SKILL.md
             skills/clarity/clarity.cjs
+            clarity-skill.zip
 
   build-binaries:
     strategy:
@@ -71,4 +76,5 @@ jobs:
             artifacts/clarity-cli-*
             artifacts/SKILL.md
             artifacts/clarity.cjs
+            artifacts/clarity-skill.zip
           generate_release_notes: true

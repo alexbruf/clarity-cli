@@ -112,6 +112,16 @@ cp -r /tmp/clarity-cli/skills/clarity ~/.claude/skills/
 
 All install methods land the skill at `~/.claude/skills/clarity/` (or `.claude/skills/clarity/` for project scope) and read the same `~/.config/clarity-cli/config.json` token, so a single `clarity auth <token>` configures both the CLI and the skill.
 
+### Install in Claude.ai (web app)
+
+Download [`clarity-skill.zip`](https://github.com/alexbruf/clarity-cli/releases/latest/download/clarity-skill.zip) from the latest release, then:
+
+1. Open [claude.ai](https://claude.ai) → **Customize → Skills**
+2. Click **+** → **+ Create skill**
+3. Upload `clarity-skill.zip`
+
+**Caveat:** Claude.ai runs skills in a browser-side sandbox. The bundled `clarity.cjs` fallback will only execute if Claude.ai's code-execution tool is enabled and supports Node. When it works, pass your token per-invocation (`--token <t>`) since the skill has no persistent config in the sandbox. For full CLI functionality (persistent auth, native binary speed, no sandbox limits), use Claude Code.
+
 Once installed, ask Claude things like:
 
 > "What were my rage-click sessions on /checkout this week?"
