@@ -74,7 +74,7 @@ jobs:
         with:
           files: |
             artifacts/clarity-cli-*
-            artifacts/SKILL.md
-            artifacts/clarity.cjs
+            artifacts/**/SKILL.md
+            artifacts/**/clarity.cjs
             artifacts/clarity-skill.zip
           generate_release_notes: true
