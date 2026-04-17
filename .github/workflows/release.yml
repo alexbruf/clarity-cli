@@ -22,8 +22,8 @@ jobs:
         with:
           name: clarity-skill
           path: |
-            claude-skill/SKILL.md
-            claude-skill/clarity.cjs
+            skills/clarity/SKILL.md
+            skills/clarity/clarity.cjs
 
   build-binaries:
     strategy:

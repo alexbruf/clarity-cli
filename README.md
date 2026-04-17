@@ -75,32 +75,42 @@ clarity insights --days 1 --dim1 OS --dim2 Country --json
 
 ## Claude Code skill
 
-The skill at `claude-skill/SKILL.md` lets Claude call `clarity` on your behalf. It ships with a bundled `clarity.cjs` Node fallback so the skill works even if the native binary isn't on PATH.
+The skill at `skills/clarity/SKILL.md` lets Claude call `clarity` on your behalf. It ships with a bundled `clarity.cjs` Node fallback so the skill works even if the native binary isn't on PATH.
 
-### Install (user-level — recommended)
+### Install with `npx skills` (recommended)
+
+Uses the open-source [`vercel-labs/skills`](https://github.com/vercel-labs/skills) CLI for the Agent Skills ecosystem — auto-discovers `SKILL.md`, handles symlinking, and works with any skills-compatible agent (Claude Code, Cursor, OpenCode, Codex, …).
 
 ```bash
+# User-level (available across all projects)
+npx skills add alexbruf/clarity-cli -a claude-code -g
+
+# Project-level (committed with your project)
+npx skills add alexbruf/clarity-cli -a claude-code
+
+# List available skills before installing
+npx skills add alexbruf/clarity-cli --list
+```
+
+### Install manually (no npx)
+
+```bash
+# User-level
 mkdir -p ~/.claude/skills/clarity
-curl -L https://raw.githubusercontent.com/alexbruf/clarity-cli/main/claude-skill/SKILL.md   -o ~/.claude/skills/clarity/SKILL.md
-curl -L https://raw.githubusercontent.com/alexbruf/clarity-cli/main/claude-skill/clarity.cjs -o ~/.claude/skills/clarity/clarity.cjs
+curl -L https://raw.githubusercontent.com/alexbruf/clarity-cli/main/skills/clarity/SKILL.md    -o ~/.claude/skills/clarity/SKILL.md
+curl -L https://raw.githubusercontent.com/alexbruf/clarity-cli/main/skills/clarity/clarity.cjs -o ~/.claude/skills/clarity/clarity.cjs
+
+# Project-level — replace ~/.claude with .claude above
 ```
 
-### Install (project-level)
-
-```bash
-mkdir -p .claude/skills/clarity
-curl -L https://raw.githubusercontent.com/alexbruf/clarity-cli/main/claude-skill/SKILL.md   -o .claude/skills/clarity/SKILL.md
-curl -L https://raw.githubusercontent.com/alexbruf/clarity-cli/main/claude-skill/clarity.cjs -o .claude/skills/clarity/clarity.cjs
-```
-
-### Install (clone)
+### Install via git clone
 
 ```bash
 git clone https://github.com/alexbruf/clarity-cli /tmp/clarity-cli
-cp -r /tmp/clarity-cli/claude-skill ~/.claude/skills/clarity
+cp -r /tmp/clarity-cli/skills/clarity ~/.claude/skills/
 ```
 
-Both paths read the same `~/.config/clarity-cli/config.json` token, so a single `clarity auth <token>` configures both the CLI and the skill.
+All install methods land the skill at `~/.claude/skills/clarity/` (or `.claude/skills/clarity/` for project scope) and read the same `~/.config/clarity-cli/config.json` token, so a single `clarity auth <token>` configures both the CLI and the skill.
 
 Once installed, ask Claude things like:
 

@@ -40,7 +40,7 @@ curl -L https://github.com/alexbruf/clarity-cli/releases/latest/download/clarity
 **Fallback: Node.js bundle** into the skill directory (no PATH install needed):
 ```bash
 mkdir -p "$CLAUDE_SKILL_DIR"
-curl -L https://raw.githubusercontent.com/alexbruf/clarity-cli/main/claude-skill/clarity.cjs \
+curl -L https://raw.githubusercontent.com/alexbruf/clarity-cli/main/skills/clarity/clarity.cjs \
   -o "$CLAUDE_SKILL_DIR/clarity.cjs"
 ```
 

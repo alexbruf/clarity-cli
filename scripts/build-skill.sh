@@ -8,7 +8,7 @@ ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 cd "$ROOT_DIR"
 
-OUT="claude-skill/clarity.cjs"
+OUT="skills/clarity/clarity.cjs"
 echo "Bundling src/index.ts → $OUT …"
 bunx esbuild src/index.ts \
   --bundle \
@@ -19,7 +19,7 @@ bunx esbuild src/index.ts \
   --outfile="$OUT"
 
 # Clean up legacy .js output if present
-rm -f claude-skill/clarity.js
+rm -f skills/clarity/clarity.js claude-skill/clarity.js claude-skill/clarity.cjs
 
 chmod +x "$OUT"
 echo "Done: $(wc -c < $OUT) bytes"

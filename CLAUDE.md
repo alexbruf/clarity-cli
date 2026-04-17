@@ -42,7 +42,7 @@ Single-package CLI. Commander-based. Config at `~/.config/clarity-cli/config.jso
 
 ## Claude skill
 
-`claude-skill/SKILL.md` + `claude-skill/clarity.cjs`. The skill prefers `clarity` on PATH and falls back to `node $CLAUDE_SKILL_DIR/clarity.cjs`. Install docs in README.
+`skills/clarity/SKILL.md` + `skills/clarity/clarity.cjs`. The skill prefers `clarity` on PATH and falls back to `node $CLAUDE_SKILL_DIR/clarity.cjs`. Install docs in README.
 
 ## AI visibility
 
